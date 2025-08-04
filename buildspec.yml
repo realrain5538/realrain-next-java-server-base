@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     REPOSITORY_URI: 077672914621.dkr.ecr.ap-northeast-2.amazonaws.com
-    IMAGE_NAME: jaden
+    IMAGE_NAME: realrain
     IMAGE_TAG: latest
     IMAGE_URI: 077672914621.dkr.ecr.ap-northeast-2.amazonaws.com/realrain:latest
 
@@ -29,7 +29,7 @@ phases:
       - echo "Docker 이미지 푸시"
       - docker push $IMAGE_URI
       - echo "imagedefinitions.json 생성"
-      - printf '[{"name":"realrain-service","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
+      - printf '[{"name":"realrain-ecr","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
 
 artifacts:
   files:
